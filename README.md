@@ -71,7 +71,7 @@ A mystical fortune-telling experience with:
 - Original Zelda-inspired music
 - Context-aware fortune selection
 
-[View Project](./Day%201/winter-festival-fortune-teller/) | [Live Demo](#)
+[View Project](./Day%201/winter-festival-fortune-teller/) 
 
 ---
 
