@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Madame Zelda's Mystical Fortune Teller">
+    <meta name="theme-color" content="#1a0033">
+    <title>Madame Zelda's Crystal Ball 🔮</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="triforce">▲</div>
+            <h1>Madame Zelda's</h1>
+            <h2>✨ Mystical Crystal Ball ✨</h2>
+            <div class="triforce">▲</div>
+        </header>
+
+        <div class="music-control">
+            <button id="musicToggle" aria-label="Toggle Music">🎵 Music: ON</button>
+        </div>
+
+        <div class="crystal-ball-container">
+            <div class="crystal-ball" id="crystalBall">
+                <div class="orb">
+                    <div class="shine"></div>
+                    <div class="inner-glow"></div>
+                    <div id="fortuneText" class="fortune-text hidden">
+                        <p class="fortune-content"></p>
+                        <div class="fortune-icons"></div>
+                    </div>
+                </div>
+                <div class="base"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="instruction" id="instruction">
+                Place your hand upon the crystal ball and seek your fortune...
+            </div>
+            <button id="revealButton" class="reveal-btn">
+                ⚔️ Reveal Your Destiny ⚔️
+            </button>
+        </div>
+
+        <div class="rupee-counter">
+            <span class="rupee">💎</span>
+            <span id="fortuneCount">0</span> Fortunes Revealed
+        </div>
+    </div>
+
+    <canvas id="particles"></canvas>
+    
+    <script src="music.js"></script>
+    <script src="fortunes.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed'));
+        }
+    </script>
+</body>
+</html>
