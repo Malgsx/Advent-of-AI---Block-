@@ -1,4 +1,4 @@
-# 🔮 Madame Zelda's Mystical Crystal Ball
+# Madame Zelda's Mystical Crystal Ball
 
 > A Winter Festival Fortune Teller - Available as PWA and CLI!
 
@@ -9,35 +9,35 @@
 
 **Madame Zelda's Mystical Crystal Ball** is a delightful fortune-telling experience inspired by *The Legend of Zelda* series. Get your mystical fortunes through a beautiful web interface or directly in your terminal with colorful CLI personalities!
 
-## ✨ Features
+## Features
 
-### 🌐 Web App (PWA)
-- 🔮 **Beautiful Crystal Ball** - Animated with glowing effects and particle animations
-- 🎵 **Original Music** - Zelda-inspired mystical melody (Web Audio API)
-- 📱 **Progressive Web App** - Install on any device (iOS, Android, Desktop)
-- 🎨 **Magical Visuals** - Starfield background, Triforce, rupees, hearts
-- 💫 **Particle Effects** - Tap the crystal ball for magical sparkles
-- 🎮 **Easter Eggs** - Try the Konami Code (↑ ↑ ↓ ↓ ← →)
-- 🌙 **Contextual Fortunes** - Adapts to time of day and season
+### Web App (PWA)
+- **Beautiful Crystal Ball** - Animated with glowing effects and particle animations
+- **Original Music** - Zelda-inspired mystical melody (Web Audio API)
+- **Progressive Web App** - Install on any device (iOS, Android, Desktop)
+- **Magical Visuals** - Starfield background, Triforce, rupees, hearts
+- **Particle Effects** - Tap the crystal ball for magical sparkles
+- **Easter Eggs** - Try the Konami Code (↑ ↑ ↓ ↓ ← →)
+- **Contextual Fortunes** - Adapts to time of day and season
 
-### 💻 CLI Version
-- 🎭 **6 Unique Personalities** - Different fortune teller characters each run
-- 🌈 **Colorful Output** - Beautiful terminal styling with emojis
-- ⚡ **Instant Fortunes** - Quick mystical wisdom in your terminal
-- 🎲 **Smart Selection** - Context-aware based on time and season
+### CLI Version
+- **6 Unique Personalities** - Different fortune teller characters each run
+- **Colorful Output** - Beautiful terminal styling with emojis
+- **Instant Fortunes** - Quick mystical wisdom in your terminal
+- **Smart Selection** - Context-aware based on time and season
 
-### 📚 Fortune Categories
+### Fortune Categories
 
-- ⚔️ **Adventure & Quests** - Epic journeys await
-- 💕 **Love & Romance** - Matters of the heart
-- 💰 **Wealth & Prosperity** - Abundance and fortune
-- ❤️ **Health & Vitality** - Wellness and energy
-- 🌌 **Cosmic & Celestial** - Wisdom from the stars
-- ❄️ **Winter Festival** - Seasonal magic
-- 🧠 **Wisdom & Knowledge** - Ancient insights
-- 💪 **Courage & Strength** - Brave your path
+- **Adventure & Quests** - Epic journeys await
+- **Love & Romance** - Matters of the heart
+- **Wealth & Prosperity** - Abundance and fortune
+- **Health & Vitality** - Wellness and energy
+- **Cosmic & Celestial** - Wisdom from the stars
+- **Winter Festival** - Seasonal magic
+- **Wisdom & Knowledge** - Ancient insights
+- **Courage & Strength** - Brave your path
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Web Version
 
@@ -123,7 +123,7 @@ fortune run
 
 Each run gives you a random personality and fortune!
 
-## 🎭 CLI Personalities
+## CLI Personalities
 
 Meet the mystical characters who deliver your fortunes:
 
@@ -136,7 +136,7 @@ Meet the mystical characters who deliver your fortunes:
 | 🌌 **The Cosmic Oracle** | Reader of the stars | Light blue, celestial |
 | ⚔️ **The Courageous Hero** | Brave quest giver | Light red, bold |
 
-## 📱 Installing as PWA
+## Installing as PWA
 
 ### iOS (iPhone/iPad)
 1. Open in Safari
@@ -153,7 +153,7 @@ Meet the mystical characters who deliver your fortunes:
 1. Look for install icon in address bar
 2. Click "Install"
 
-## 🎨 Customization
+## Customization
 
 ### Adding Your Own Fortunes
 
@@ -197,7 +197,7 @@ personalities.yourCharacter = {
 };
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 winter-festival-fortune-teller/
@@ -219,7 +219,7 @@ winter-festival-fortune-teller/
 └── .gitignore              # Git ignore rules
 ```
 
-## 🛠️ Technical Details
+## Technical Details
 
 ### Web App Stack
 - **Pure Vanilla JavaScript** - No frameworks required
@@ -235,7 +235,7 @@ winter-festival-fortune-teller/
 - **ANSI Escape Codes** - Terminal colors and styling
 - **Bash Script** - Simple runner script
 
-## 🌟 Smart Features
+## Smart Features
 
 ### Context-Aware Fortunes
 - **Winter Months** (Nov-Jan): 40% chance of winter-themed fortunes
@@ -247,14 +247,14 @@ winter-festival-fortune-teller/
 - Graceful degradation for older browsers
 - Responsive design for all screen sizes
 
-## 🎮 Easter Eggs
+## Easter Eggs
 
 - **Konami Code**: ↑ ↑ ↓ ↓ ← → (on web version)
 - **Crystal Ball Click**: Triggers particle effects
 - **Multiple Categories**: Fortunes adapt to season and time
 - **Fortune Count**: Tracks how many fortunes you've received
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -265,21 +265,21 @@ Contributions are welcome! Here's how you can help:
 5. **Open a Pull Request**
 
 ### Ideas for Contributions
-- 🎨 New fortune categories
-- 🎭 Additional CLI personalities
-- 🎵 More music variations
-- 🌍 Internationalization (i18n)
-- ✨ New visual effects
-- 🎮 More easter eggs
-- 📱 Enhanced mobile features
+- New fortune categories
+- Additional CLI personalities
+- More music variations
+- Internationalization (i18n)
+- New visual effects
+- More easter eggs
+- Enhanced mobile features
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](#license) file for details.
 
-## 🙏 Credits
+## Credits
 
-Created with ❤️ and ✨ for the Winter Festival
+Created for the Winter Festival
 
 Inspired by *The Legend of Zelda* series (all content is original and non-copyrighted)
 
@@ -291,13 +291,13 @@ Inspired by *The Legend of Zelda* series (all content is original and non-copyri
 - Node.js
 - ANSI Terminal Styling
 
-## 🔗 Links
+## Links
 
 - [Web Demo](#) - (Add your deployed URL here)
 - [Report Bug](https://github.com/yourusername/winter-festival-fortune-teller/issues)
 - [Request Feature](https://github.com/yourusername/winter-festival-fortune-teller/issues)
 
-## 📸 Screenshots
+## Screenshots
 
 ### Web Version
 *(Add screenshots of your web app here)*
@@ -318,12 +318,12 @@ Category: ADVENTURE
 ══════════════════════════════════════════════════════════════════════
 ```
 
-## ⭐ Show Your Support
+## Show Your Support
 
-If you enjoyed this project, please give it a ⭐️ on GitHub!
+If you enjoyed this project, please give it a star on GitHub!
 
 ---
 
-**May the Triforce guide your path!** 🔮⚔️✨
+**May the Triforce guide your path!**
 
 *Happy Fortune Telling!*
