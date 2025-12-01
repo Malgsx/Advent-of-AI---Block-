@@ -279,9 +279,17 @@ This project is licensed under the MIT License - see the [LICENSE](#license) fil
 
 ## Credits
 
-Created for the Winter Festival
+Created for the Winter Festival as part of **Block's Advent of AI** challenge.
 
-Inspired by *The Legend of Zelda* series (all content is original and non-copyrighted)
+### Special Thanks
+- **[Block](https://block.xyz/)** - For creating and hosting the Advent of AI challenge, inspiring developers to build with AI tools
+- **Goose AI** - The AI assistant that helped build this project
+- *The Legend of Zelda* series - For inspiration (all content is original and non-copyrighted)
+
+### Challenge Information
+This project was created as Day 1 of Block's Advent of AI challenge, where developers use Goose (Block's open-source AI coding assistant) to build creative projects over 23 days.
+
+Learn more about the challenge: [Block's Advent of AI](https://www.adventof.ai/)
 
 ### Technologies Used
 - Web Audio API
