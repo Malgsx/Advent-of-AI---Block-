@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Winter's Tale - Choose Your Adventure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --winter-blue: #1e3a5f;
+            --ice-blue: #a8d5e2;
+            --snow-white: #f8f9fa;
+            --frost-silver: #e8f4f8;
+            --aurora-purple: #b8a4d4;
+            --aurora-green: #7dd3c0;
+            --night-sky: #0f1419;
+            --accent-gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.7) 0%, rgba(15, 20, 25, 0.8) 100%);
+            z-index: 0;
+        }
+
+        /* Snowflake animation */
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10vh;
+            color: white;
+            font-size: 1em;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                        0 0 100px rgba(168, 213, 226, 0.2);
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+            border: 2px solid var(--ice-blue);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--winter-blue);
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(168, 213, 226, 0.3);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--aurora-purple);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .story-content {
+            background: var(--frost-silver);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--aurora-green);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .story-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: var(--night-sky);
+            margin-bottom: 20px;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .choice-button {
+            background: linear-gradient(135deg, var(--ice-blue) 0%, var(--aurora-green) 100%);
+            color: var(--winter-blue);
+            border: none;
+            padding: 18px 30px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(168, 213, 226, 0.4);
+            border: 2px solid transparent;
+            font-family: 'Georgia', serif;
+        }
+
+        .choice-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 213, 226, 0.6);
+            border-color: var(--aurora-purple);
+            background: linear-gradient(135deg, var(--aurora-green) 0%, var(--ice-blue) 100%);
+        }
+
+        .choice-button:active {
+            transform: translateY(-1px);
+        }
+
+        .restart-button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #f4d03f 100%);
+            color: var(--winter-blue);
+            margin-top: 10px;
+        }
+
+        .restart-button:hover {
+            background: linear-gradient(135deg, #f4d03f 0%, var(--accent-gold) 100%);
+        }
+
+        .ending {
+            background: linear-gradient(135deg, var(--aurora-purple) 0%, var(--aurora-green) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            color: white;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(184, 164, 212, 0.5);
+        }
+
+        .path-tracker {
+            text-align: center;
+            color: var(--winter-blue);
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .story-text {
+                font-size: 1.1em;
+            }
+
+            .choice-button {
+                padding: 15px 20px;
+                font-size: 1em;
+            }
+        }
+
+        /* Aurora effect */
+        @keyframes aurora {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translateY(-20px);
+            }
+        }
+
+        .aurora {
+            position: fixed;
+            width: 100%;
+            height: 300px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--aurora-purple) 25%, 
+                var(--aurora-green) 50%, 
+                var(--aurora-purple) 75%, 
+                transparent 100%);
+            opacity: 0.3;
+            animation: aurora 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="aurora"></div>
+    
+    <!-- Snowflakes -->
+    <div id="snowflakes"></div>
+
+    <div class="container">
+        <h1>❄️ A Winter's Tale ❄️</h1>
+        <div class="subtitle">A Magical Choose-Your-Own-Adventure</div>
+        
+        <div class="path-tracker" id="pathTracker"></div>
+        
+        <div class="story-content">
+            <div class="story-text" id="storyText"></div>
+            <div class="choices" id="choices"></div>
+        </div>
+    </div>
+
+    <script>
+        // TypeScript-style code with type safety through JSDoc
+        
+        /**
+         * @typedef {Object} StoryNode
+         * @property {string} text - The story text to display
+         * @property {Choice[]} [choices] - Available choices (if any)
+         * @property {string} [ending] - Ending message (if this is an ending)
+         */
+
+        /**
+         * @typedef {Object} Choice
+         * @property {string} text - The choice text
+         * @property {string} next - The next node ID
+         */
+
+        /** @type {Object.<string, StoryNode>} */
+        const storyNodes = {
+            start: {
+                text: "The first snowflakes of winter dance through the crisp evening air as you walk through the ancient forest. The path ahead splits into three directions. To the left, you hear the faint sound of sleigh bells. Straight ahead, a warm golden glow emanates from between the frost-covered trees. To the right, an ethereal blue light flickers mysteriously in the darkness.",
+                choices: [
+                    { text: "🔔 Follow the sound of sleigh bells", next: "sleighBells" },
+                    { text: "✨ Walk toward the golden glow", next: "goldenGlow" },
+                    { text: "💙 Investigate the mysterious blue light", next: "blueLight" }
+                ]
+            },
+            
+            sleighBells: {
+                text: "You follow the jingling bells deeper into the forest. Snow begins to fall more heavily, and soon you discover a magnificent reindeer with silver antlers standing in a moonlit clearing. The reindeer speaks: 'I am the Guardian of Winter's Heart. My enchanted crystal has been stolen by the Shadow of Eternal Night. Will you help me retrieve it, or do you seek your own path?'",
+                choices: [
+                    { text: "🦌 Accept the quest to retrieve the crystal", next: "acceptQuest" },
+                    { text: "🌙 Politely decline and ask for directions home", next: "askDirections" }
+                ]
+            },
+
+            goldenGlow: {
+                text: "As you approach the golden light, you discover a cozy cottage made entirely of gingerbread and candy canes. Through the frosted windows, you see a kind-looking winter witch stirring a bubbling cauldron. She notices you and waves you inside. 'Welcome, traveler! I'm brewing a potion of eternal warmth. Would you like to stay and learn winter magic, or do you prefer to continue your journey?'",
+                choices: [
+                    { text: "🏠 Stay and learn winter magic", next: "learnMagic" },
+                    { text: "🌨️ Thank her and continue your journey", next: "continueJourney" }
+                ]
+            },
+
+            blueLight: {
+                text: "The blue light grows brighter as you approach, revealing an enormous ice palace with spires that pierce the night sky. At the entrance stands a frost fairy who bows gracefully. 'The Ice Queen has been expecting you. She offers you a choice: become a guardian of winter and live in eternal beauty, or receive her blessing and return to your world with a gift.'",
+                choices: [
+                    { text: "👑 Become a guardian of winter", next: "becomeGuardian" },
+                    { text: "🎁 Accept the blessing and return home", next: "acceptBlessing" }
+                ]
+            },
+
+            acceptQuest: {
+                text: "The reindeer's eyes sparkle with gratitude. 'The Shadow dwells in the Cave of Forgotten Winters. Take this enchanted compass—it will guide you.' You journey through blizzards and across frozen lakes. Finally, you reach the cave and confront the Shadow. Using the power of the reindeer's trust and the compass's magic, you retrieve the crystal. The forest erupts in celebration!",
+                ending: "🌟 THE HERO'S TRIUMPH - You became a legend of the winter realm, forever celebrated as the one who saved Winter's Heart. The reindeer grants you the gift of eternal wonder, and you can visit the magical forest whenever you wish."
+            },
+
+            askDirections: {
+                text: "The reindeer smiles sadly but understands. 'Follow the North Star through the birch grove. May warmth find you.' As you walk, you notice the forest transforming. The snow glows with soft light, guiding your path home. When you emerge from the forest, you find a small crystal in your pocket—a gift from the Guardian.",
+                ending: "🏡 THE PEACEFUL RETURN - You made it home safely with a magical memento. Sometimes the greatest adventures are the ones that teach us to appreciate what we have. The crystal glows warmly whenever winter arrives, reminding you of the magic that exists just beyond the ordinary world."
+            },
+
+            learnMagic: {
+                text: "The witch smiles warmly and begins teaching you the ancient ways of winter magic. You learn to summon snowflakes, speak with winter creatures, and brew potions that bring joy to cold hearts. Months pass in what feels like days. Finally, she declares you a Winter Mage and presents you with a staff of crystallized starlight.",
+                ending: "🔮 THE WINTER MAGE - You became a master of winter magic! You now travel between worlds, bringing the magic of winter to those who need wonder in their lives. Your cottage appears in different forests each season, and you help travelers just as the kind witch once helped you."
+            },
+
+            continueJourney: {
+                text: "The witch presses a warm cookie into your hand. 'This will guide you home,' she says with a knowing smile. As you bite into it, you feel warmth spreading through you, and the forest path ahead lights up with gentle fireflies made of ice. They lead you on a beautiful journey through winter wonderlands you never knew existed, each more breathtaking than the last.",
+                ending: "🍪 THE WANDERER'S JOY - Your journey became the stuff of legend. You discovered seventeen hidden winter wonders and wrote a book about your travels. Every winter, you return to the forest to explore new paths, and the witch's cottage always has a warm cookie waiting for you."
+            },
+
+            becomeGuardian: {
+                text: "You accept the Ice Queen's offer. She touches your forehead with her crystal scepter, and you feel the transformation begin. Your form becomes ethereal, shimmering like northern lights. You gain the power to control ice and snow, to speak with winter winds, and to protect the beauty of the frozen realm. You are eternal, magical, and free.",
+                ending: "❄️ THE ETERNAL GUARDIAN - You became one with winter itself! As a guardian, you paint frost on windows, guide snowflakes in their dances, and protect the magic of the winter realm. You are forever young, forever free, and forever part of the most beautiful season."
+            },
+
+            acceptBlessing: {
+                text: "The Ice Queen nods approvingly. She presents you with a snowflake pendant that never melts. 'This carries a piece of winter magic. Use it wisely.' You feel a gentle pull, and suddenly you're back in your own world, but everything seems more vibrant. You notice the magic in everyday moments—the first snowfall, a child's laughter, the warmth of hot cocoa.",
+                ending: "💎 THE BLESSED ONE - You returned to your world with the gift of seeing magic everywhere. The pendant allows you to step back into the winter realm once a year, and you use your blessing to spread joy and wonder. You became a bridge between two worlds, making both a little more magical."
+            }
+        };
+
+        /** @type {string[]} */
+        let pathHistory = [];
+        
+        /** @type {string} */
+        let currentNode = 'start';
+
+        /**
+         * Creates snowflakes for the background animation
+         */
+        function createSnowflakes() {
+            const container = document.getElementById('snowflakes');
+            const snowflakeCount = 50;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.textContent = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                snowflake.style.animationDelay = Math.random() * 10 + 's';
+                snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+                container.appendChild(snowflake);
+            }
+        }
+
+        /**
+         * Displays the current story node
+         * @param {string} nodeId - The ID of the node to display
+         */
+        function showStory(nodeId) {
+            currentNode = nodeId;
+            const node = storyNodes[nodeId];
+            
+            const storyText = document.getElementById('storyText');
+            const choices = document.getElementById('choices');
+            const pathTracker = document.getElementById('pathTracker');
+            
+            // Clear previous content
+            storyText.innerHTML = '';
+            choices.innerHTML = '';
+            
+            // Show path
+            if (pathHistory.length > 0) {
+                pathTracker.textContent = `Chapter ${pathHistory.length + 1}`;
+            } else {
+                pathTracker.textContent = 'The Journey Begins...';
+            }
+            
+            // Display story text with typing effect
+            const text = node.text;
+            let charIndex = 0;
+            const typingSpeed = 20;
+            
+            function typeText() {
+                if (charIndex < text.length) {
+                    storyText.textContent += text.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, typingSpeed);
+                } else {
+                    // Show choices after text is done
+                    showChoices(node);
+                }
+            }
+            
+            typeText();
+        }
+
+        /**
+         * Displays the choices for the current node
+         * @param {StoryNode} node - The current story node
+         */
+        function showChoices(node) {
+            const choices = document.getElementById('choices');
+            
+            if (node.ending) {
+                // Show ending
+                const endingDiv = document.createElement('div');
+                endingDiv.className = 'ending';
+                endingDiv.textContent = node.ending;
+                choices.appendChild(endingDiv);
+                
+                // Add restart button
+                const restartBtn = document.createElement('button');
+                restartBtn.className = 'choice-button restart-button';
+                restartBtn.textContent = '🔄 Begin a New Tale';
+                restartBtn.onclick = () => {
+                    pathHistory = [];
+                    showStory('start');
+                };
+                choices.appendChild(restartBtn);
+            } else if (node.choices) {
+                // Show regular choices
+                node.choices.forEach((choice, index) => {
+                    const button = document.createElement('button');
+                    button.className = 'choice-button';
+                    button.textContent = choice.text;
+                    button.style.animationDelay = (index * 0.1) + 's';
+                    button.onclick = () => {
+                        pathHistory.push(currentNode);
+                        showStory(choice.next);
+                    };
+                    choices.appendChild(button);
+                });
+            }
+        }
+
+        // Initialize the app
+        window.addEventListener('DOMContentLoaded', () => {
+            createSnowflakes();
+            showStory('start');
+        });
+    </script>
+</body>
+</html>

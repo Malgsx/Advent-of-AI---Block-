@@ -3,7 +3,7 @@
 # Usage: ./goose run
 
 if [ "$1" == "run" ]; then
-    node /Users/malgsx/winter-festival-fortune-teller/fortune-cli.js
+    node "/Users/malgsx/Advent of AI/Day 1/winter-festival-fortune-teller/fortune-cli.js"
 else
     echo "Usage: goose run"
     echo "  Reveals your mystical winter fortune!"

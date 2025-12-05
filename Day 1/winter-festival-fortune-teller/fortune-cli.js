@@ -173,6 +173,65 @@ function getPreferredCategory() {
     return null; // Random
 }
 
+// Falling sword animation
+async function fallingSwordsAnimation() {
+    const swords = ['🗡️', '⚔️', '🗡️', '⚔️', '🗡️'];
+    const width = 70;
+    const height = 12;
+    
+    // Helper to sleep
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    
+    // Create sword positions
+    const swordPositions = swords.map((sword, i) => ({
+        sword,
+        x: Math.floor((width / (swords.length + 1)) * (i + 1)),
+        y: 0,
+        rotation: Math.random() > 0.5 ? '/' : '\\'
+    }));
+    
+    // Animate falling
+    for (let frame = 0; frame < height; frame++) {
+        // Clear screen
+        console.clear();
+        
+        // Create empty grid
+        const grid = Array(height).fill(null).map(() => Array(width).fill(' '));
+        
+        // Place swords at current positions
+        swordPositions.forEach(pos => {
+            if (pos.y >= 0 && pos.y < height && pos.x >= 0 && pos.x < width) {
+                grid[pos.y][pos.x] = pos.sword;
+            }
+        });
+        
+        // Draw grid
+        console.log('\n');
+        grid.forEach(row => console.log(row.join('')));
+        console.log('\n');
+        
+        // Update positions
+        swordPositions.forEach(pos => {
+            pos.y++;
+            // Add slight horizontal wobble
+            if (Math.random() > 0.7) {
+                pos.x += Math.random() > 0.5 ? 1 : -1;
+                pos.x = Math.max(0, Math.min(width - 1, pos.x));
+            }
+        });
+        
+        await sleep(100);
+    }
+    
+    // Final impact effect
+    console.clear();
+    console.log('\n');
+    console.log(' '.repeat(10) + '⚔️  🗡️  ⚔️  🗡️  ⚔️');
+    console.log(' '.repeat(10) + '💥 💥 💥 💥 💥');
+    console.log('\n');
+    await sleep(500);
+}
+
 // Get a random fortune
 function getFortune(categoryPreference = null) {
     let category;
@@ -199,9 +258,9 @@ function displayFortune(personality, fortune) {
     const dim = colors.dim;
     
     console.log("\n");
-    console.log("═".repeat(70));
+    console.log("🗡️ " + "═".repeat(68));
     console.log(p.color + bright + p.greeting + reset);
-    console.log("═".repeat(70));
+    console.log("🗡️ " + "═".repeat(68));
     console.log("\n");
     
     console.log(dim + p.prefix + reset);
@@ -211,12 +270,15 @@ function displayFortune(personality, fortune) {
     console.log(dim + p.suffix + reset);
     console.log("\n");
     console.log(colors.yellow + "Category: " + fortune.category.toUpperCase() + reset);
-    console.log("═".repeat(70));
+    console.log("🗡️ " + "═".repeat(68));
     console.log("\n");
 }
 
 // Main function
-function main() {
+async function main() {
+    // Play falling swords animation
+    await fallingSwordsAnimation();
+    
     // Random personality each time
     const personalityKeys = Object.keys(personalities);
     const randomPersonality = random(personalityKeys);
