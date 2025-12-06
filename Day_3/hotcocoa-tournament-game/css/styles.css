@@ -1,0 +1,392 @@
+/**
+ * Pixel Tournament - Custom CSS Variables & Styles
+ * Shadcn-inspired dark theme with retro gaming aesthetic
+ */
+
+:root {
+    /* Color System - Shadcn Dark Theme */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --gold: 45 93% 47%;
+    --silver: 0 0% 75%;
+    --bronze: 25 75% 47%;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Border */
+    --border-width: 4px;
+    --border-radius: 0;
+
+    /* Shadows */
+    --shadow-sm: 4px 4px 0px;
+    --shadow-md: 8px 8px 0px;
+    --shadow-lg: 10px 10px 0px;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    padding: var(--spacing-lg);
+    line-height: 1.8;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes glow {
+    0%, 100% { 
+        text-shadow: 0 0 10px hsl(var(--gold)), 0 0 20px hsl(var(--gold)); 
+    }
+    50% { 
+        text-shadow: 0 0 20px hsl(var(--gold)), 0 0 30px hsl(var(--gold)); 
+    }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: hsl(var(--card));
+    border: var(--border-width) solid hsl(var(--border));
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md) hsl(var(--primary));
+    animation: slideDown 0.5s ease-out;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: hsl(var(--gold));
+    text-shadow: 4px 4px 0px hsl(var(--primary));
+    animation: glow 2s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 0.7rem;
+    color: hsl(var(--silver));
+    margin-top: var(--spacing-sm);
+}
+
+/* Cards */
+.card {
+    background: hsl(var(--card));
+    border: var(--border-width) solid hsl(var(--border));
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md) hsl(var(--secondary));
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-lg) hsl(var(--primary));
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    color: hsl(var(--primary));
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px dashed hsl(var(--border));
+}
+
+/* Champion Section */
+.champion {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--bronze)) 100%);
+    color: hsl(var(--background));
+    border: var(--border-width) solid hsl(var(--gold));
+    margin: var(--spacing-lg) 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.champion-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.stat-card {
+    background: hsl(var(--secondary));
+    padding: var(--spacing-sm);
+    border: 3px solid hsl(var(--border));
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    color: hsl(var(--gold));
+    margin: var(--spacing-xs) 0;
+}
+
+.stat-label {
+    font-size: 0.6rem;
+    color: hsl(var(--foreground));
+    opacity: 0.8;
+}
+
+/* Tournament Bracket */
+.bracket {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.round {
+    background: hsl(var(--secondary));
+    padding: var(--spacing-sm);
+    border: 3px solid hsl(var(--border));
+}
+
+.round-title {
+    font-size: 0.9rem;
+    color: hsl(var(--gold));
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    padding: var(--spacing-xs);
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--primary));
+}
+
+.match {
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+}
+
+.team {
+    padding: var(--spacing-xs);
+    margin: var(--spacing-xs) 0;
+    font-size: 0.65rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team.winner {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-weight: bold;
+    border: 2px solid hsl(var(--gold));
+}
+
+.team.loser {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    opacity: 0.7;
+}
+
+.votes {
+    font-size: 0.8rem;
+    color: hsl(var(--gold));
+    font-weight: bold;
+}
+
+/* Recipe Cards */
+.radar-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
+.recipe-card {
+    background: hsl(var(--secondary));
+    padding: var(--spacing-md);
+    border: 3px solid hsl(var(--border));
+}
+
+.recipe-name {
+    font-size: 0.8rem;
+    color: hsl(var(--primary));
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.stat-bar-container {
+    margin: 0.8rem 0;
+}
+
+.stat-bar-label {
+    font-size: 0.55rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-bar {
+    height: 20px;
+    background: hsl(var(--accent));
+    border: 2px solid hsl(var(--border));
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--gold)) 100%);
+    transition: width 1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: var(--spacing-xs);
+}
+
+/* Voting Trends Chart */
+.voting-chart {
+    margin-top: var(--spacing-lg);
+}
+
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 300px;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: hsl(var(--secondary));
+    border: 3px solid hsl(var(--border));
+}
+
+.bar {
+    flex: 1;
+    background: linear-gradient(180deg, hsl(var(--primary)) 0%, hsl(var(--gold)) 100%);
+    border: 3px solid hsl(var(--border));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--spacing-sm);
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.bar:hover {
+    transform: translateY(-10px);
+    filter: brightness(1.2);
+}
+
+.bar-value {
+    font-size: 0.8rem;
+    color: hsl(var(--background));
+    margin-bottom: var(--spacing-xs);
+}
+
+.bar-label {
+    position: absolute;
+    bottom: -2rem;
+    font-size: 0.6rem;
+    color: hsl(var(--foreground));
+    white-space: nowrap;
+}
+
+/* Fun Stats */
+.fun-stats {
+    background: hsl(var(--accent));
+    padding: var(--spacing-md);
+    border: 3px dashed hsl(var(--primary));
+    margin-top: var(--spacing-lg);
+}
+
+.fun-stat-item {
+    margin: var(--spacing-sm) 0;
+    font-size: 0.65rem;
+    padding: var(--spacing-xs);
+    background: hsl(var(--card));
+    border-left: 4px solid hsl(var(--gold));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+    }
+    
+    .bracket {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .radar-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    opacity: 0.7;
+}
+
+footer p {
+    font-size: 0.6rem;
+}
+
+footer p:last-child {
+    font-size: 0.5rem;
+    margin-top: var(--spacing-xs);
+}
