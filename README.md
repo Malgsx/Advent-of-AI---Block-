@@ -3,7 +3,7 @@
 > Building creative projects with Goose AI over 23 days
 
 ![Advent of AI](https://img.shields.io/badge/Advent%20of%20AI-2025-blue?style=for-the-badge)
-![Days Completed](https://img.shields.io/badge/Days%20Completed-3%2F23-green?style=for-the-badge)
+![Days Completed](https://img.shields.io/badge/Days%20Completed-4%2F23-green?style=for-the-badge)
 ![Built with Goose](https://img.shields.io/badge/Built%20with-Goose%20AI-purple?style=for-the-badge)
 
 ## About This Challenge
@@ -26,7 +26,7 @@ Each day presents a new opportunity to explore different technologies, solve int
 - [x] **Day 1** - [Winter Festival Fortune Teller](./Day%201/winter-festival-fortune-teller/) - PWA & CLI fortune teller with Zelda inspiration
 - [x] **Day 2** - [A Winter's Tale](./Day_2/) - Interactive choose-your-own-adventure with winter theme
 - [x] **Day 3** - [Hot Cocoa Tournament Game](./Day_3/hotcocoa-tournament-game/) - Pixel-art tournament bracket visualizer
-- [ ] **Day 4** - Coming soon...
+- [x] **Day 4** - [Winterland Festival Website](./Day_4/winter-festival/) - Next.js + Tailwind + shadcn/ui festival landing page
 - [ ] **Day 5** - Coming soon...
 - [ ] **Day 6** - Coming soon...
 - [ ] **Day 7** - Coming soon...
@@ -107,6 +107,23 @@ A pixel-perfect, retro gaming tournament visualization with:
 - Zero dependencies, 100% vanilla JavaScript
 
 [View Project](./Day_3/hotcocoa-tournament-game/)
+
+---
+
+### Day 4: Winterland Festival Website
+
+**Technologies:** Next.js 16, TypeScript, Tailwind CSS, shadcn/ui, TanStack Query, Framer Motion  
+**Type:** Web App (Landing Page)  
+**Status:** ✅ Complete
+
+A beautiful winter festival landing page with:
+- Animated canvas snowfall effect
+- Interactive schedule tabs and countdown timer
+- Highlights: Fortune Telling, Storytelling, Hot Cocoa Bar
+- Ticket pricing cards with shadcn/ui components
+- Fully mobile-responsive design
+
+[View Project](./Day_4/winter-festival/)
 
 ---
 
@@ -207,17 +224,17 @@ See individual project folders for specific license details.
 
 | Week | Days | Status | Completion |
 |------|------|--------|------------|
-| 1 | Days 1-7 | 🔄 In Progress | 3/7 |
+| 1 | Days 1-7 | 🔄 In Progress | 4/7 |
 | 2 | Days 8-14 | ⏳ Upcoming | 0/7 |
 | 3 | Days 15-21 | ⏳ Upcoming | 0/7 |
 | 4 | Days 22-23 | ⏳ Upcoming | 0/2 |
 
-**Total Progress:** 3/23 days (13.0%)
+**Total Progress:** 4/23 days (17.4%)
 
 ---
 
-**Last Updated:** December 5, 2025  
-**Current Day:** Day 3 ✅
+**Last Updated:** December 9, 2025  
+**Current Day:** Day 4 ✅
 
 *Building the future, one day at a time with AI assistance* 🚀
 
